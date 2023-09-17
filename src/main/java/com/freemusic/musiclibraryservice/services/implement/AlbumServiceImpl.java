@@ -22,7 +22,7 @@ public class AlbumServiceImpl implements AlbumService {
     @Override
     public Album getAlbumById(int albumId) {
         return albumRepository.getReferenceById(albumId);
-    }
+    }//
 
     @Override
     public void addAlbum(Album album) {
