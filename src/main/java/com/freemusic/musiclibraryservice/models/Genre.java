@@ -1,5 +1,6 @@
 package com.freemusic.musiclibraryservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Genre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int genre_id;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "genres")
     private Set<Track> tracks;
 
