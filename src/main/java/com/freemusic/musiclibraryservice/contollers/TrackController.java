@@ -39,6 +39,16 @@ public class TrackController {
         }
     }
 
+    @GetMapping("/search/artist")
+    public ResponseEntity<List<Track>> getTracksByArtistId(@RequestParam("artistId") int artistId){
+        List<Track> result = trackService.getTracksByArtistId(artistId);
+        if(result != null){
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     //need to change
    /* @PostMapping("/add")
     public void addTrack(@RequestParam("track") String trackStr, @RequestParam("files") MultipartFile[] files) throws IOException {

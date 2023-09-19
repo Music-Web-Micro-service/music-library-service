@@ -26,6 +26,11 @@ public class TrackServiceImpl implements TrackService {
     }
 
     @Override
+    public List<Track> getTracksByArtistId(int artistId) {
+        return trackRepository.getTrackByArtistId(artistId);
+    }
+
+    @Override
     public void addTrack(Track track) {
         trackRepository.save(track);
     }

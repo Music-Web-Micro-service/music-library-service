@@ -10,6 +10,8 @@ public interface TrackService {
 
     Track getTrackById(int trackId);
 
+    List<Track> getTracksByArtistId(int artistId);
+
     void addTrack(Track track);
 
     void updateTrack(Track track);
