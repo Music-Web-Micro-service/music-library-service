@@ -26,12 +26,14 @@ public class Album {
     )
     private Set<Track> tracks;
 
+    private String description;
+
     private String title;
 
     private boolean isBand = false;
     private int artistId;
 
-    private String imageId;
+    private Integer imageId;
 
     private Date releaseDate;
 
