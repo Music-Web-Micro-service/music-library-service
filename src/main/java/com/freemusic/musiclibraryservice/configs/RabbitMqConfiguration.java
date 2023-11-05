@@ -19,6 +19,16 @@ public class RabbitMqConfiguration {
     }
 
     @Bean
+    public DirectExchange elasticsearchExchange() {
+        return new DirectExchange("ElasticsearchExchange");
+    }
+
+    @Bean
+    public Queue myQueue() {
+        return new Queue("ElasticSearchQueue", true);
+    }
+
+    @Bean
     public Queue queue() {
         return new Queue("MusicMediaQueue");
     }
@@ -26,6 +36,11 @@ public class RabbitMqConfiguration {
     @Bean
     public Binding binding(Queue queue, DirectExchange directExchange) {
         return BindingBuilder.bind(queue).to(directExchange).with("MusicMedia");
+    }
+
+    @Bean
+    public Binding elasticsearchBinding(Queue myQueue, DirectExchange elasticsearchExchange) {
+        return BindingBuilder.bind(myQueue).to(elasticsearchExchange).with("ElasticsearchRoutingKey");
     }
 
     @Bean
